@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<f:view>
+    <h:head>
+        <title>Währungsrechner</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>Währungsrechner</h1>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="fremdwaehrung" value="Fremdwährung"/>
+                <h:selectOneMenu id="fremdwaehrung" value="#{waherungsUmrechnungBean.selectedWaherung}">
+                    <f:selectItems value="#{waherungsUmrechnungBean.waehrungen}"/>
+                </h:selectOneMenu>
+
+                <h:outputLabel for="betrag" value="Betrag"/>
+                <h:inputText id="betrag" value="#{waherungsUmrechnungBean.betrag}"/>
+
+                <h:commandButton value="Berechnen" action="#{waherungsUmrechnungBean.calculate}"/>
+            </h:panelGrid>
+
+            <h:outputLabel for="result" value="Euro Betrag"/>
+            <h:outputText id="result" value="#{waherungsUmrechnungBean.result}"/>
+
+        </h:form>
+    </h:body>
+</f:view>
+</html>
